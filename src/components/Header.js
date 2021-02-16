@@ -1,11 +1,16 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-const Header = ({ img, img2 }) => {
+import { View, StyleSheet, ImageBackground } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+const Header = ({ img }) => {
   return (
-    <View style={styles.header}>
-      <Image style={{ width: 360, height: 136 }} source={img} />
-      <Image style={styles.arrw} source={img2} />
-    </View>
+    <ImageBackground style={{ width: "100%", height: 136 }} source={img}>
+      <Ionicons
+        style={styles.arrw}
+        name="arrow-back"
+        size={32}
+        color="#465A62"
+      />
+    </ImageBackground>
   );
 };
 
@@ -16,7 +21,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 12,
     left: 16,
-    width: 32,
-    height: 32,
+    backgroundColor: "#d4d6d6",
+    borderRadius: 25,
+    opacity: 0.6,
+    padding: 2,
   },
 });

@@ -5,7 +5,7 @@ const Card = ({ img, text }) => {
   return (
     <View style={styles.card}>
       <View>
-        <Image style={styles.img} source={img} />
+        <Image resizeMode="contain" style={styles.img} source={img} />
       </View>
 
       <View style={styles.text}>

@@ -7,7 +7,7 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../components/Header";
 import Button from "../components/Button";
 
@@ -15,34 +15,35 @@ class Scrn2 extends Component {
   render() {
     const { navigation } = this.props;
     return (
-      <View style={styles.container}>
-        <View>
-          <Header
-            img={require("../../assets/sunM.png")}
-            img2={require("../../assets/nxtarrw.png")}
-          />
-        </View>
+      <SafeAreaView style={styles.container}>
+        <Header img={require("../../assets/sunM.png")} />
 
-        <ScrollView style={styles.bodyContainer}>
+        <ScrollView
+          contentContainerStyle={styles.bodyContainer}
+          style={{ marginTop: -15 }}
+        >
           <View style={styles.body}>
             <View style={styles.text}>
               <View
-                style={[
-                  styles.textTitle,
-                  { marginVertical: 36, alignItems: "center" },
-                ]}
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginVertical: 36,
+                  alignItems: "center",
+                }}
               >
                 <Text style={styles.title}>Kick Starting 2021</Text>
+                <View style={{ flexDirection: "row" }}>
+                  <Image
+                    style={styles.fileimg}
+                    source={require("../../assets/file-text.png")}
+                  />
 
-                <Image
-                  style={styles.fileimg}
-                  source={require("../../assets/file-text.png")}
-                />
-
-                <Image
-                  style={styles.targetimg}
-                  source={require("../../assets/target.png")}
-                />
+                  <Image
+                    style={styles.targetimg}
+                    source={require("../../assets/target.png")}
+                  />
+                </View>
               </View>
               <View>
                 <Text style={styles.txt}>
@@ -56,17 +57,19 @@ class Scrn2 extends Component {
               </View>
             </View>
             <View style={styles.images}>
-              <View>
+              <View style={{ flex: 1, marginRight: 12 }}>
                 <Image
                   style={styles.commonImage}
+                  resizeMode="contain"
                   source={require("../../assets/bird.png")}
                 />
                 <Text style={styles.caption}>Hope for the New Year</Text>
                 <Text style={styles.session}>7 sessions</Text>
               </View>
-              <View style={{ marginLeft: 24 }}>
+              <View style={{ flex: 1, marginLeft: 12 }}>
                 <Image
                   style={styles.commonImage}
+                  resizeMode="contain"
                   source={require("../../assets/arrow.png")}
                 />
                 <Text style={styles.caption}>Making Resolutions Stick</Text>
@@ -107,7 +110,7 @@ class Scrn2 extends Component {
             </ImageBackground>
           </View>
         </ScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -116,19 +119,17 @@ export default Scrn2;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
     flex: 1,
   },
   bodyContainer: {
-    flex: 1,
-
     backgroundColor: "#fff",
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
   },
   images: {
     marginTop: 32,
     flexDirection: "row",
+    justifyContent: "space-between",
   },
   fileimg: {
     width: 16,
@@ -140,8 +141,9 @@ const styles = StyleSheet.create({
     marginLeft: 48,
   },
   commonImage: {
-    width: 144,
+    width: "100%",
     height: 200,
+    borderRadius: 12,
   },
   arrw: {
     position: "absolute",
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
   },
   imgBackgrnd: {
     height: 180,
-    width: 360,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -183,13 +185,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: "#465A62",
-    marginRight: 59,
     fontFamily: "bold",
   },
   txt: {
     fontSize: 14,
     color: "#465A62",
     fontFamily: "medium",
+    alignItems: "center",
     opacity: 0.8,
   },
   smallText: {

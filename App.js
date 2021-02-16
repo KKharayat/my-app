@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import Scrn2 from "./src/Screens/Scrn2";
 import Scrn4 from "./src/Screens/Scrn4";
@@ -31,13 +32,15 @@ class App extends Component {
   render() {
     if (this.state.fontsLoaded) {
       return (
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Scrn2" headerMode="none">
-            <Stack.Screen name="Scrn2" component={Scrn2} />
-            <Stack.Screen name="Scrn4" component={Scrn4} />
-            <Stack.Screen name="Scrn5" component={Scrn5} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Scrn2" headerMode="none">
+              <Stack.Screen name="Scrn2" component={Scrn2} />
+              <Stack.Screen name="Scrn4" component={Scrn4} />
+              <Stack.Screen name="Scrn5" component={Scrn5} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaProvider>
       );
     } else {
       return <AppLoading />;

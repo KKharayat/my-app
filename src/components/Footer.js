@@ -32,13 +32,13 @@ const Footer = () => {
 export default Footer;
 const styles = StyleSheet.create({
   imgBackgrnd: {
-    height: 180,
-    width: 360,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
   txt: {
     marginHorizontal: 32,
+    marginBottom: 24,
     textAlign: "center",
     fontSize: 14,
     color: "#465A62",
@@ -46,5 +46,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginTop: 40,
+    alignItems: "center",
   },
 });

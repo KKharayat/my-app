@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import Header from "../components/Header";
 import List from "../components/List";
 import List2 from "../components/List2";
@@ -8,12 +10,12 @@ import Footer from "../components/Footer";
 class Scrn5 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Header
-          img={require("../../assets4/arrw.png")}
-          img2={require("../../assets4/backarrw.png")}
-        />
-        <ScrollView style={styles.bodyContainer}>
+      <SafeAreaView style={styles.container}>
+        <Header img={require("../../assets4/arrw.png")} />
+        <ScrollView
+          contentContainerStyle={styles.bodyContainer}
+          style={{ marginTop: -15 }}
+        >
           <View style={styles.body}>
             <View style={styles.text}>
               <Text style={styles.title}>Goal Setting for 2021</Text>
@@ -39,7 +41,7 @@ class Scrn5 extends Component {
           </View>
           <Footer />
         </ScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -48,16 +50,13 @@ export default Scrn5;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
     flex: 1,
   },
   bodyContainer: {
-    flex: 1,
-    width: 360,
-    height: 676,
+    width: "100%",
     backgroundColor: "#fff",
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
   },
   text: {
     marginVertical: 32,
@@ -76,6 +75,6 @@ const styles = StyleSheet.create({
     height: 32,
     position: "absolute",
     top: 232,
-    left: 304,
+    right: 32,
   },
 });

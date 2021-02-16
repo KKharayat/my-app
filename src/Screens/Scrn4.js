@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Button2 from "../components/Button2";
@@ -8,14 +9,14 @@ class Scrn4 extends Component {
   render() {
     const { navigation } = this.props;
     return (
-      <View style={styles.container}>
-        <Header
-          img={require("../../assets4/arrw.png")}
-          img2={require("../../assets4/backarrw.png")}
-        />
-        <ScrollView style={styles.bodyContainer}>
+      <SafeAreaView style={styles.container}>
+        <Header img={require("../../assets4/arrw.png")} />
+        <ScrollView
+          contentContainerStyle={styles.bodyContainer}
+          style={{ marginTop: -15 }}
+        >
           <View style={styles.body}>
-            <View style={styles.text}>
+            <View style={{ marginVertical: 32 }}>
               <Text style={styles.title}>Goal Setting for 2021</Text>
 
               <Text style={styles.txt}>
@@ -44,7 +45,7 @@ class Scrn4 extends Component {
             onPress={() => navigation.navigate("Scrn5")}
           />
         </ScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -53,16 +54,13 @@ export default Scrn4;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
     flex: 1,
   },
   bodyContainer: {
-    flex: 1,
-    width: 360,
-    height: 676,
+    width: "100%",
     backgroundColor: "#fff",
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
   },
   body: {
     paddingHorizontal: 24,
@@ -76,9 +74,7 @@ const styles = StyleSheet.create({
     fontFamily: "bold",
     opacity: 0.8,
   },
-  text: {
-    marginVertical: 32,
-  },
+
   txt: {
     fontSize: 16,
     color: "#465A62",
