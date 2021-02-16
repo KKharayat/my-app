@@ -8,6 +8,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Scrn2 from "./src/Screens/Scrn2";
 import Scrn4 from "./src/Screens/Scrn4";
 import Scrn5 from "./src/Screens/Scrn5";
+import Scrn6 from "./src/Screens/Scrn6";
 
 const Stack = createStackNavigator();
 
@@ -34,10 +35,11 @@ class App extends Component {
       return (
         <SafeAreaProvider>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Scrn2" headerMode="none">
+            <Stack.Navigator initialRouteName="Scrn6" headerMode="none">
               <Stack.Screen name="Scrn2" component={Scrn2} />
               <Stack.Screen name="Scrn4" component={Scrn4} />
               <Stack.Screen name="Scrn5" component={Scrn5} />
+              <Stack.Screen name="Scrn6" component={Scrn6} />
             </Stack.Navigator>
           </NavigationContainer>
         </SafeAreaProvider>

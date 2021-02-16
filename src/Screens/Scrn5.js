@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Header from "../components/Header";
@@ -9,6 +16,7 @@ import Footer from "../components/Footer";
 
 class Scrn5 extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <Header img={require("../../assets4/arrw.png")} />
@@ -32,10 +40,19 @@ class Scrn5 extends Component {
             />
 
             <List2 day="DAY 3" caption="Managing Shift Work" />
-            <Image
+
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Scrn6");
+              }}
               style={styles.imgnxt}
-              source={require("../../assets5/nxtRight.png")}
-            />
+            >
+              <Image
+                style={{ width: 32, height: 32 }}
+                source={require("../../assets5/nxtRight.png")}
+              />
+            </TouchableOpacity>
+
             <List2 day="DAY 4" caption="Light Exposure" />
             <List2 day="DAY 5" caption="Staying Alert at Work" />
           </View>
@@ -71,8 +88,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   imgnxt: {
-    width: 32,
-    height: 32,
     position: "absolute",
     top: 232,
     right: 32,
