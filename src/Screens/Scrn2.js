@@ -32,7 +32,7 @@ class Scrn2 extends Component {
                   alignItems: "center",
                 }}
               >
-                <Text style={styles.title}>Kick Starting 2021</Text>
+                <Text style={styles.title}>Kick Starting 2020</Text>
                 <View style={{ flexDirection: "row" }}>
                   <Image
                     style={styles.fileimg}
